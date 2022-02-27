@@ -1,0 +1,84 @@
+
+//noinspection CssOverwrittenProperties
+%container {
+  width     : 92%;
+  max-width : 768px;
+  max-width : 65ch;
+  margin    : 0 auto;
+}
+
+.container, section, article, hgroup {
+  @extend %container;
+}
+
+
+
+// Page Regions
+//------------------------------------------------------------------------------
+$page-region--nav     : "[role=navigation], nav";
+$navbar-list          : "[role=navigation] > ul, nav > ul";
+$page-region--header  : "[role=banner], body>header:first-of-type";
+$page-region--main    : "[role=main],main";
+$page-region--footer  : "[role=contentinfo],body>footer:last-of-type";
+$page-region-selectors: "[role=navigation], [role=banner], [role=main], [role=contentinfo], nav, body>header:first-of-type,main,body>footer:last-of-type";
+
+
+// Page Regions
+//------------------------------------------------------------------------------
+#{$page-region-selectors} {
+  // position : relative;
+  width : 100%;
+  min-width : 100vw;
+}
+#{$page-region--main} {
+  padding : 1em 0;
+  flex-grow : 1;
+  section, article {
+    padding : 1em 0;
+    margin-bottom : 2em;
+  }
+}
+#{$page-region--footer} {
+  padding : 2em 0;
+  text-align : center;
+  margin : 0;
+  p {
+    line-height : 1 !important;
+    margin : 0 auto;
+    padding : 0;
+    font-size : small;
+    color: gray;
+    font-weight : 600;
+  }
+}
+#{$page-region--header} {
+  padding : 2em 0;
+  margin : 0 !important;
+  width : 100vw;
+  hgroup {
+    h1, h2, h3, h4, h5, h6, p {
+      line-height : 1.25;
+      margin : .5rem 0;
+      padding : 0;
+    }
+  }
+}
+#{$page-region--header},
+#{$page-region--footer} {
+  background-color : ghostwhite;
+}
+
+
+body {
+  height : 100% !important;
+  min-height : 100vh !important;
+  display : flex;
+  flex-direction : column;
+  justify-content : space-between;
+}
+
+main {
+  padding : 1rem 0;
+  background-color : #ffffff;
+  flex-grow : 1;
+}

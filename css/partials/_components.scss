@@ -1,0 +1,709 @@
+/* -------------------------------------------------------------------------- */
+// Buttons
+/* -------------------------------------------------------------------------- */
+
+// Button Class
+.button {
+
+  $_this-color        : $lightgray;
+  $_this-hover-color  : hover-color($_this-color);
+  $_this-focus-color  : focus-color($_this-color);
+  $_this-active-color : active-color($_this-color);
+
+  appearance          : none !important;
+  background-color    : $_this-color;
+  border              : $_this-color solid 2px;
+  border-radius       : 3px;
+  color               : $darkgray;
+  cursor              : pointer;
+  display             : block;
+  font-size           : 1em;
+  font-weight         : 600;
+  letter-spacing      : .25px;
+  line-height         : 1;
+  margin              : 0 auto 1rem;
+  padding             : .75em 0;
+  transform           : translateY(0);
+  transition          : all 120ms;
+  user-select         : none !important;
+  width               : 100%;
+
+  @extend %fix-iOS-tap-highlight;
+
+  @include min-width(560px) {
+    display     : inline-block;
+    line-height : 1;
+    min-width   : 96px;
+    padding     : .5em;
+    width       : unset;
+  }
+
+  &:hover {
+    $_this-color     : $_this-hover-color;
+    background-color : $_this-color;
+    border-color     : $_this-color;
+  }
+
+  &:focus {
+    $_this-color     : $_this-focus-color;
+    background-color : $_this-color;
+    border-color     : $primary-color;
+    outline          : $outline-fx;
+  }
+
+  &:active {
+    $_this-color     : $_this-active-color;
+    background-color : $_this-color;
+    border-color     : $_this-color;
+    transform        : translateY(2px);
+  }
+
+
+  &.primary {
+    $_this-color        : $primary-color;
+    $_this-hover-color  : hover-color($_this-color);
+    $_this-focus-color  : focus-color($_this-color);
+    $_this-active-color : active-color($_this-color);
+
+    background-color    : $_this-color;
+    border-color        : $_this-color;
+    color               : white;
+
+    &:hover {
+      $_this-color     : $_this-hover-color;
+      background-color : $_this-color;
+      border-color     : $_this-color;
+    }
+
+    &:focus {
+      $_this-color     : $_this-focus-color;
+      background-color : $_this-color;
+      border-color     : $primary-color;
+      outline-color    : rgba($primary-color, 0.5);
+      outline-width    : 3px;
+    }
+
+    &:active {
+      $_this-color     : $_this-active-color;
+      background-color : $_this-color;
+      border-color     : $_this-color;
+      transform        : translateY(2px);
+    }
+  }
+
+  &.secondary {
+    $_this-color        : $secondary-color;
+    $_this-hover-color  : hover-color($_this-color);
+    $_this-focus-color  : focus-color($_this-color);
+    $_this-active-color : active-color($_this-color);
+
+    background-color    : $_this-color;
+    border-color        : $_this-color;
+    color               : white;
+
+    &:hover {
+      $_this-color     : $_this-hover-color;
+      background-color : $_this-color;
+      border-color     : $_this-color;
+    }
+
+    &:focus {
+      $_this-color     : $_this-focus-color;
+      background-color : $_this-color;
+      border-color     : $primary-color;
+      outline-color    : rgba($primary-color, 0.5);
+      outline-width    : 3px;
+    }
+
+    &:active {
+      $_this-color     : $_this-active-color;
+      background-color : $_this-color;
+      border-color     : $_this-color;
+      transform        : translateY(2px);
+    }
+  }
+
+  &.round, &.rounded {
+    border-radius : 2em;
+    padding-left  : .75em;
+    padding-right : .75em;
+  }
+
+  &.outline {
+    $_this-color        : $mediumgray;
+    $_this-hover-color  : hover-color($_this-color);
+    $_this-focus-color  : focus-color($_this-color);
+    $_this-active-color : active-color($_this-color);
+    background-color    : transparent;
+    border-color        : $_this-color;
+    color               : $_this-color;
+    font-weight         : 500;
+    letter-spacing      : 1px;
+
+    &:hover {
+      $_this-color     : $_this-hover-color;
+      background-color : rgba($_this-color, .1);
+      border-color     : $_this-color;
+      color            : $_this-color;
+    }
+
+    &:focus {
+      $_this-color     : $_this-focus-color;
+      background-color : rgba($_this-color, .125);
+      border-color     : $primary-color;
+      color            : $_this-focus-color;
+      outline-color    : rgba($primary-color, 0.5);
+      outline-width    : 3px;
+    }
+
+    &:active {
+      $_this-color     : $_this-active-color;
+      background-color : rgba($_this-color, .2);
+      border-color     : $_this-color;
+      color            : $_this-color;
+      transform        : translateY(2px);
+    }
+  }
+
+}
+
+// Extend to all button element selectors
+#{$all-buttons} {
+  @extend .button;
+}
+
+// Form Submit Inputs
+[type="submit"], .submit, .submit-button, .submit-input {
+  @extend .primary;
+}
+
+// Form Reset inputs
+[type="reset"], .reset, .reset-input, .reset-button {
+  @extend .outline;
+}
+
+// Button List
+.button-list, ul.buttons, ul.button {
+  @extend %list-reset;
+  margin : 1rem 0 3rem;
+
+  li {
+    display : block;
+    margin  : 0;
+
+  }
+
+  @include min-width(560px) {
+    gap : 1rem;
+    li {
+      display : inline-block;
+      margin  : 0;
+
+      .button {
+        margin : 0;
+      }
+    }
+  }
+}
+
+
+/* -------------------------------------------------------------------------- */
+// Hyperlinks
+/* -------------------------------------------------------------------------- */
+
+// Hyperflinks
+a {
+  $_this-color        : $primary-color;
+
+  color               : $_this-color;
+  cursor              : pointer;
+  font-size           : 1em;
+  font-weight         : 500;
+  line-height         : 1;
+  text-decoration     : none !important;
+  transition          : all 120ms;
+  user-select         : none !important;
+
+  @extend %fix-iOS-tap-highlight;
+
+  $_this-hover-color  : hover-color($_this-color);
+  $_this-focus-color  : focus-color($_this-color);
+  $_this-active-color : active-color($_this-color);
+
+  &:hover {
+    $_this-color : $_this-hover-color;
+    // background-color : $_this-color;
+    // border-color     : $_this-color;
+    color        : $_this-color;
+  }
+
+  &:focus {
+    $_this-color     : $_this-focus-color;
+    // background-color : $_this-color;
+    // border-color     : $primary-color;
+    background-color : rgba($primary-color, 0.1);
+    border-radius    : 3px;
+    color            : $_this-color;
+    outline          : $outline-fx;
+  }
+
+  &:active {
+    $_this-color     : $_this-active-color;
+    // background-color : $_this-color;
+    // border-color     : $_this-color;
+    background-color : rgba($primary-color, 0.25);
+    border-radius    : 3px;
+    color            : $_this-color;
+    transform        : translateY(2px);
+  }
+}
+
+// Hyperlihnk within other common elements
+p, h1, h2, h3, h4, h5, h6, li {
+  a {
+    font-size   : inherit;
+    line-height : inherit !important;
+  }
+}
+
+// Hyperlink list
+.hyperlink-list, ul.hyperlink, ul.hyperlinks {
+  @extend %list-reset;
+  margin : 1rem 0 3rem;
+
+  li {
+    display : block;
+    margin  : 0;
+
+  }
+
+  @include min-width(560px) {
+    gap : 1rem;
+    li {
+      display : inline-block;
+      margin  : 0;
+
+      a {
+        margin : 0;
+      }
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+// Navigation Bar
+/* -------------------------------------------------------------------------- */
+
+// Navbar
+nav {
+  background-color : $secondary-color;
+  color            : white;
+  display          : block;
+  height           : auto;
+  margin           : 0;
+  padding          : 0;
+  width            : 100%;
+  z-index          : 100;
+  transition: all 200ms;
+  user-select : none;
+  position : relative;
+}
+// Navbar Link List
+nav ul {
+  @extend %list-reset;
+  align-content    : center;
+  align-items      : center;
+  background-color : $secondary-color;
+  color            : white;
+  display          : flex;
+  flex-direction   : column;
+  height           : auto;
+  justify-content  : flex-start;
+  margin           : 0;
+  padding          : 0;
+  width            : 100%;
+  transition  : all 200ms;
+  user-select : none;
+}
+// Navbar Link Item
+nav li {
+  display : block;
+  width   : 100%;
+  transition  : all 200ms;
+  user-select : none;
+}
+// Navbar Hyperlink
+nav a {
+  background-color : $secondary-color;
+  color            : white !important;
+  display          : block;
+  padding          : 1em;
+  text-align       : center;
+  text-decoration  : none !important;
+  user-select : none;
+
+  transition       : all 120ms;
+  width            : 100%;
+
+  &:hover {
+    color: hover-color(white);
+    background-color : hover-color($secondary-color);
+    border-color : hover-color($secondary-color);
+  }
+  &:focus {
+    border-color : $primary-color !important;
+    outline      : $outline-fx !important;
+  }
+  &:active {
+    color: active-color(white);
+    background-color : active-color($secondary-color);
+    border-color : active-color($secondary-color);
+  }
+}
+// The active page's hyperlink
+nav a[aria-current="page"] {
+  background-color : focus-color($secondary-color) !important;
+  border-color     : focus-color($secondary-color) !important;
+  color            : rgba(white, 0.25) !important;
+  pointer-events   : none !important;
+}
+
+// Navigation Bar Control
+#nav-menu-control {
+  @extend %visually-hidden;
+  appearance : none !important;
+  user-select : none !important;
+  cursor : pointer;
+  transition : all 120ms;
+  line-height : 1 !important;
+  z-index : 1000 !important;
+  // position : absolute !important;
+  // top : .25em !important;
+  // right : .125em !important;
+  & + label {
+    line-height : 1 !important;
+    width : auto;
+    height : auto;
+    margin : 0 auto !important;
+    vertical-align : middle;
+    padding : .75em 1em;
+    z-index  : 1000 !important;
+    position : absolute !important;
+    top      : .125em !important;
+    right    : .5em !important;
+    &::before {
+      content: "" !important;
+    }
+  }
+}
+// Navigation Bar Control Label
+#nav-menu-control-label {
+  cursor : pointer;
+  transition : all 120ms;
+  user-select : none !important;
+  display : inline-block;
+  vertical-align : middle;
+  font-weight : 600;
+  font-size : 1em;
+  // line-height : 1;
+  // padding : .5em;
+  text-align : center;
+  background-color : #2a2a2a;
+  border-radius : 3px;
+  margin : 0;
+  float : right;
+
+  &:hover {
+    background-color : hover-color($secondary-color);
+    border-color : hover-color($secondary-color);
+    color: hover-color(white);
+  }
+
+  &::after {
+    transition : all 120ms;
+    content : "Menu";
+  }
+}
+// Navigation Bar Control Label WHILE INUPT IS :checked
+#nav-menu-control:checked {
+
+  & + label {
+    background-color : tomato;
+    border-color : tomato;
+    &::after {
+      content : "Close";
+    }
+  }
+}
+
+
+
+
+// Breakpoint changes
+@include min-width(560px) {
+  //noinspection CssOverwrittenProperties
+  nav ul {
+    flex-direction  : row;
+    justify-content : flex-end;
+    margin          : 0 auto;
+    max-width       : 65ch;
+
+    max-width       : 768px;
+    width           : 92%;
+
+    li {
+      display : inline-block;
+      width   : unset;
+    }
+  }
+  #nav-menu-control {
+    display : none;
+  }
+  #nav-menu-control-label {
+    display : none;
+  }
+  #nav-menu-control-label-text {
+    display : none;
+  }
+}
+
+@media screen and (max-width : 559px) {
+  #nav-menu-control, #nav-menu-control-label {
+    z-index : 2000 !important;
+  }
+  nav {
+    max-height : 3em;
+    z-index : 90 !important;
+  }
+  nav ul {
+    opacity : 0;
+    z-index : 100 !important;
+    transition : all 200ms ease !important;
+    transition-delay: 1ms !important;
+    transform : translateY(-120%);
+    &.active {
+      transform : translateY(2.75em);
+      opacity : 1;
+    }
+  }
+}
+
+
+/* -------------------------------------------------------------------------- */
+// Form Inputs
+/* -------------------------------------------------------------------------- */
+
+// Form Element
+form {
+  background-color : #ffffff;
+  border           : none;
+  // max-width : 900px;
+  display          : block;
+  margin           : 0 auto;
+  max-width        : unset;
+  padding          : 1rem 0 !important;
+  text-align       : left;
+  width            : 100% !important;
+}
+// Form Fieldset
+fieldset {
+  border     : none;
+  display    : block;
+  margin     : 0 auto 2em;
+  padding    : 1rem 0;
+  text-align : left;
+  width      : 100%;
+}
+// Legend
+legend {
+  display     : block;
+  font-size   : 1.125em;
+  font-weight : 600;
+  line-height : 1;
+  margin      : 0 auto 1rem !important;
+  padding     : 0;
+  text-align  : left;
+  width       : 100%;
+
+}
+// All Textual Inputs
+#{$all-text-inputs} {
+  appearance       : none;
+  background-color : darken(whitesmoke, 2%);
+  border           : darken(whitesmoke, 10%) 1px solid;
+  border-color: darken(whitesmoke, 10%);
+  border-radius    : .25em;
+  display          : block;
+  font-size        : 1em;
+  line-height      : 1;
+  margin           : 0 auto 1em;
+  // background-color : white;
+  padding          : .75em;
+  user-select      : none;
+  width            : 100%;
+}
+// Labels
+label {
+  display     : block;
+  font-size   : 1em;
+  font-weight : 500;
+  line-height : 1;
+  margin      : 1rem auto .25rem;
+}
+
+
+#contact-us-form {
+  legend {
+    margin : 0 auto !important;
+    padding : 0 !important;
+  }
+  fieldset {
+    padding : 0 !important;
+    // margin : 0 auto !important;
+  }
+  input {
+    margin-bottom : 1rem !important;
+  }
+
+  [type="submit"] {
+    float : left;
+  }
+  [type="reset"] {
+    float : right;
+  }
+}
+
+
+//------------------------------------------------------------------------------
+
+// Radio & Checkbox Inputs
+
+// hide native buttons
+.radio, .checkbox {
+  height         : 0;
+  margin         : 0 !important;
+  opacity        : 0;
+  padding        : 0 !important;
+  pointer-events : none;
+  position       : absolute;
+  width          : 0;
+
+  & + label::before {
+    background-origin   : border-box;
+    background-position : center, center;
+  }
+
+  &:focus {
+    & + label {
+      color : $primary-color;
+    }
+
+    & + label::before {
+      background-color : $lightgray !important;
+      border-color     : $primary-color !important;
+    }
+  }
+}
+
+// label
+.radio + label, .checkbox + label {
+  cursor         : pointer;
+  line-height    : 2;
+  user-select    : none;
+  vertical-align : middle;
+
+}
+
+// custom buttons - basic style
+.radio + label::before, .checkbox + label::before {
+  background-color : #dddddd;
+  border           : 2px solid $mediumgray;
+  // width            : 1.25em;
+  // height           : 1.25em;
+  // line-height : 1;
+  content          : "";
+  display          : inline-block;
+  height           : 1.25em;
+  line-height      : 1;
+  margin-right     : $checkbox-radio-gap; // gap between custom input and label
+  transition       : all .2s;
+  vertical-align   : middle;
+  width            : 1.25em;
+}
+
+// radio only style
+.radio + label::before {
+  border-radius : 50%;
+}
+
+// checkbox only style
+.checkbox + label::before {
+  // border-radius : 4px;
+  border-radius : $checkbox-radius;
+}
+
+// :checked
+.radio:checked + label::before, .checkbox:checked + label::before {
+  background-color : $primary-color;
+  border-color     : $primary-color;
+}
+
+// radio button :checked
+.radio:checked + label::before {
+  background-image : url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cg class='nc-icon-wrapper' fill='%23ffffff'%3E%3Ccircle cx='8' cy='8' r='8' fill='%23ffffff'%3E%3C/circle%3E%3C/g%3E%3C/svg%3E");
+  background-size  : $radio-marker-size;
+}
+
+// checkbox button :checked
+.checkbox:checked + label::before {
+  background-image : url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpolyline points='1 6.5 4 9.5 11 2.5' fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3E%3C/svg%3E");
+  background-size  : $checkbox-marker-size;
+}
+
+.checkbox:checked, .radio:checked {
+  &:hover {
+    & + label {
+      color : hover-color($primary-color);
+    }
+
+    & + label::before {
+      background-color : hover-color($primary-color) !important;
+    }
+  }
+
+  &:focus {
+    & + label {
+      color : $primary-color;
+    }
+
+    & + label::before {
+      background-color : focus-color($primary-color) !important;
+      border-color     : $primary-color !important;
+      outline          : $outline-fx;
+    }
+  }
+
+  &:active {
+    & + label {
+      color : active-color($primary-color);
+    }
+
+    & + label::before {
+      background-color : active-color($primary-color) !important;
+    }
+  }
+}
+
+
+[type="radio"] {
+  @extend .radio;
+}
+
+[type="checkbox"] {
+  &:not(#nav-menu-control) {
+    @extend .checkbox;
+  }
+}
+
+
+

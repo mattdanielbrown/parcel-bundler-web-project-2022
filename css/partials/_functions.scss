@@ -1,0 +1,61 @@
+// color tint and shade
+@function shade($color,$percent) {
+
+  @return mix(#000000, $color, $percent);
+}
+
+@function tint($color,$percent) {
+
+  @return mix(#ffffff, $color, $percent);
+}
+
+
+/** Color-adjustment for interaction events **/
+
+@function hoverColor($color) {
+  @return darken($color, 5%);
+}
+
+@function hover-color($color) {
+  @return darken($color, 5%);
+}
+
+@function focusColor($color) {
+  @return darken($color, 10%);
+}
+
+@function focus-color($color) {
+  @return darken($color, 10%);
+}
+
+@function activeColor($color) {
+  @return darken($color, 15%);
+}
+
+@function active-color($color) {
+  @return darken($color, 15%);
+}
+
+@function adjustedColorForState($color, $state:hover) {
+  @if ($state == hover) {
+    @return hover-color($color);
+  } @else if ($state == focus) {
+    @return focus-color($color);
+  } @else if ($state == active) {
+    @return active-color($color);
+  } @else {
+    @return hover-color($color);
+  }
+}
+
+@function adjusted-color-for-state($color, $state:hover) {
+  @if ($state == hover) {
+    @return hover-color($color);
+  } @else if ($state == focus) {
+    @return focus-color($color);
+  } @else if ($state == active) {
+    @return active-color($color);
+  } @else {
+    @return hover-color($color);
+  }
+}

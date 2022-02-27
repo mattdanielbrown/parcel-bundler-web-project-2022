@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Parcel Bundler Web Project | Contact Form Demo</title>
+    <meta name="description" content="Parcel Bundler Web Project 2022">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- Reference the source files for Inter font-family (via Google Fonts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/main.scss">
+
+    <meta name="theme-color" content="#601fff">
+  </head>
+  <body>
+
+    <nav>
+      <input type="checkbox" id="nav-menu-control" name="nav-menu-control">
+      <label for="nav-menu-control" id="nav-menu-control-label"></label>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="page-two.html">Page Two</a></li>
+        <li><a href="contact-form-demo.html" aria-current="page">Contact</a></li>
+        <li><a href="#">Link</a></li>
+      </ul>
+    </nav>
+
+    <header>
+      <hgroup>
+        <h1>Website Title</h1>
+        <h2>Contact Form Demo</h2>
+      </hgroup>
+    </header>
+
+    <main>
+      <section>
+        <h3>Contact Us</h3>
+        <form action="contact-us-form-submission.php" id="contact-us-form" method="get">
+          <fieldset>
+            <legend>Contact Information and Message</legend>
+
+            <label for="contact-us-form--sender-name">Full Name</label>
+            <input type="text" id="contact-us-form--sender-name" maxlength="100"
+                   minlength="4" name="contact-us-form--sender-name" autocapitalize="words"
+                   spellcheck="false" autocomplete placeholder="John Doe" required>
+
+            <label for="contact-us-form--sender-email">Email Address</label>
+            <input type="email" id="contact-us-form--sender-email" minlength="4"
+                   name="contact-us-form--sender-email" maxlength="60" autocapitalize="off"
+                   autocomplete placeholder="john.doe@email.com" required>
+
+            <label for="contact-us-form--sender-phone">Phone Number</label>
+            <input type="tel" id="contact-us-form--sender-phone" minlength="10"
+                   maxlength="10" name="contact-us-form--sender-phone" autocomplete
+                   placeholder="1234567890" required>
+
+            <label for="contact-us-form--sender-message">Your Message</label>
+            <textarea name="contact-us-form--sender-message" minlength="5"
+                      id="contact-us-form--sender-message" cols="30" rows="10"
+                      placeholder="Type your message here..." maxlength="200"
+                      required
+            ></textarea>
+
+          </fieldset>
+
+          <fieldset>
+            <legend>Preferred Method of Contact</legend>
+
+            <input type="radio" id="contact-us-form--sender-preferred-contact-method--email"
+                   name="contact-us-form--sender-preferred-contact-method" value="email" checked>
+            <label for="contact-us-form--sender-preferred-contact-method--email">Contact by
+              <strong>email</strong> is preffered</label>
+
+            <input type="radio" id="contact-us-form--sender-preferred-contact-method--phone"
+                   name="contact-us-form--sender-preferred-contact-method" value="phone">
+            <label for="contact-us-form--sender-preferred-contact-method--phone">Contact by
+              <strong>phone</strong> is preffered</label>
+          </fieldset>
+
+
+
+          <input type="submit" value="Send Message">
+          <input type="reset" value="Reset Form">
+
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>Copyright &copy; 2022. All Rghts Reserved.</p>
+    </footer>
+
+    <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

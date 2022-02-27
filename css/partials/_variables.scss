@@ -1,0 +1,46 @@
+/* Typography */
+
+// Fontstacks
+
+$inter-typeface        : "Inter", Inter, "Inter", inter, "inter", "inter", Inter UI, "Inter UI";
+$fallback-font         : system-ui, -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
+$font-family           : $inter-typeface, $fallback-font !default;
+
+
+
+
+/* Color */
+
+// Primitives
+$lightgray             : #cccccc;
+$mediumgray            : #555555;
+$darkgray              : #333333;
+
+
+
+// Thematic
+$primary-color         : #601fff;
+$secondary-color       : #434343;
+
+
+
+
+// Other
+
+// Outline Effect
+$outline-fx-opacity    : 0.2;
+$outline-fx-base-color : $primary-color;
+$outline-color         : rgba($outline-fx-base-color, $outline-fx-opacity);
+$outline-style         : solid;
+$outline-wdith         : 3px;
+$outline-fx            : $outline-color $outline-wdith $outline-style;
+
+// Radio & Checkbox Input Values
+$checkbox-radio-size : 16px;
+$checkbox-radio-gap : .5rem;
+$checkbox-radio-border-width : 2px;
+$checkbox-radio-line-height: 1;
+// $ radio-marker-size : 8px;
+$radio-marker-size : 8px;
+$checkbox-marker-size : 16px;
+$checkbox-radius : 4px;
