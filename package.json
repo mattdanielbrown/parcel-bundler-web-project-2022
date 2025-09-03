@@ -15,7 +15,7 @@
     "parcel-bundler": "^1.12.5",
     "postcss": "^8.4.6",
     "postcss-scss": "^4.0.3",
-    "sass": "^1.49.9"
+    "sass": "^1.90.0"
   },
   "dependencies": {
     "bourbon": "^7.2.0",
@@ -23,6 +23,6 @@
     "modern-normalize": "^1.1.0",
     "reseter.css": "^2.0.0",
     "sanitize.css": "^13.0.0",
-    "sass": "^1.49.7"
+    "sass": "^1.90.0"
   }
 }
